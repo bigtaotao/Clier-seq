@@ -1,0 +1,7 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+fastp.json
+gencore.json
+py_scripts/__pycache__/

@@ -1,0 +1,5 @@
+name,sample,type,group,dutp,umi
+cne2_self_input_1,CNE2-Input_L2_G025,input,1,1,0
+cne2_self_enrich_1,CNE2-Enrich_L2_G026,enrich,1,1,0
+HR-1_input_1,HR1-input-1,input,2,1,5
+HR-1_enrich_1,HR1-enrich-1,enrich,2,1,5

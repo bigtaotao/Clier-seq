@@ -1,0 +1,63 @@
+input: 
+  root: "/mnt/i/znn/pipeline/input"
+  list: "/mnt/i/znn/pipeline/input/fastq_list.csv"
+output:
+  root: "/mnt/i/znn/pipeline/output"
+config:
+  fastp:
+    run: True
+    threads: 8
+  mapping:
+    threads: 24
+  picard:
+    mem: 48
+  stringtie:
+    parallel: 2
+    threads: 4
+    pipeline:
+      - "genome"
+  pipeline:
+    - "ebv"
+    - "repeat"
+    - "rRNA"
+    - "tRNA"
+    - "mtDNA"
+    - "genome"
+
+pipeline_config:
+  ref_root: "/mnt/d/znn/pipeline/glycoRNA/ref"
+  pipe:
+    ebv:
+      ref: "EBV/EBV"
+      fasta: "EBV/EBV.fasta"
+      bed: "EBV/EBV.bed"
+      gtf: "EBV/Akata.gtf"
+      stringtie: ""
+    repeat:
+      ref: "repeat/repeatRNA_spaced"
+      fasta: "repeat/repeatRNA_spaced.fa"
+      bed: "repeat/repeatRNA_spaced.bed"
+      gtf: "repeat/repeatRNA_spaced.gtf"
+      stringtie: ""
+    rRNA: 
+      ref: "rRNA/rrna"
+      fasta: "rRNA/rrna.fa"
+      bed: "rRNA/rrna.bed"
+    tRNA:
+      ref: "tRNA/tRNAs"
+      fasta: "tRNA/tRNAs.fa"
+      bed: "tRNA/tRNAs.bed"
+    mtDNA:
+      ref: "mtDNA/mtDNA"
+      fasta: "mtDNA/mtDNA.fa"
+      bed: "mtDNA/mtDNA.bed"
+    genome:
+      ref: "GRCh38/GRCh38"
+      fasta: "GRCh38/GRCh38.fa"
+      # bed: "GRCh38/genes_BED6.bed"
+      bed: "GRCh38/gencode.v42.chr_patch_hapl_scaff.annotation.bed"
+      types_file: "GRCH38/gene_types"
+      gtf: "GRCh38/stringtie_merged_old.gtf"
+      # gtf: "GRCh38/gencode.v42.chr_patch_hapl_scaff.annotation.gtf"
+      stringtie: "GRCh38/stringtie_merged.gtf"
+
